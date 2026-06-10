@@ -164,9 +164,12 @@ ob_start();
                     </div>
                     <div class="space-y-1">
                         <span class="block amharic text-slate-800 dark:text-slate-200 leading-none group-hover:text-primary transition duration-300 pr-1 select-none"><?= $isLangAmharic ? htmlspecialchars($surah['nameAmh']) : htmlspecialchars($surah['nameEn']) ?></span>
+                        <?php $surahKey = 'surah' . str_pad($surah['id'], 3, '0', STR_PAD_LEFT); if (!empty($surahMeanings[$surahKey])): ?>
+                        <span class="block text-xs text-slate-400 dark:text-slate-500 font-medium leading-tight"><?= htmlspecialchars($surahMeanings[$surahKey]) ?></span>
+                        <?php endif; ?>
                         <div class="flex items-center space-x-1.5 text-xs text-slate-400 dark:text-slate-500 font-bold select-none">
                             <i data-lucide="book-open" class="w-[13px] h-[13px] text-sky-400 dark:text-sky-500 fill-sky-200/10"></i>
-                            <span><?= $surah['ayahCount'] ?> Verse</span>
+                            <span><?= $surah['ayahCount'] ?> Verse (አንቀጽ)</span>
                         </div>
                     </div>
                 </div>

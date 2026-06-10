@@ -57,13 +57,21 @@ ob_start();
     
     <!-- Sticky Toolbar -->
     <div class="sticky top-16 z-30 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 py-3 px-4 flex items-center shadow-sm transition-colors">
-        <div class="flex-1 flex items-center justify-center space-x-3">
-            <h1 id="surah-name-display" class="reading-surah-name">surah<?= str_pad($surahArabic['index'], 3, '0', STR_PAD_LEFT) ?></h1>
-            <button onclick="toggleSurahFavorite(<?= $surahIndex ?>, '<?= htmlspecialchars($surahArabic['name']) ?>')"
-                    class="p-1.5 rounded-lg border transition hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 border-transparent flex-shrink-0"
-                    data-fav-id="sura-<?= $surahIndex ?>" title="Favorite Surah">
-                <i data-lucide="heart" class="w-[18px] h-[18px]"></i>
-            </button>
+        <div class="flex-1 flex items-center justify-center space-x-4">
+            <div class="flex items-center space-x-3">
+                <h1 id="surah-name-display" class="reading-surah-name">surah<?= str_pad($surahArabic['index'], 3, '0', STR_PAD_LEFT) ?></h1>
+                <button onclick="toggleSurahFavorite(<?= $surahIndex ?>, '<?= htmlspecialchars($surahArabic['name']) ?>')"
+                        class="p-1.5 rounded-lg border transition hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 border-transparent flex-shrink-0"
+                        data-fav-id="sura-<?= $surahIndex ?>" title="Favorite Surah">
+                    <i data-lucide="heart" class="w-[18px] h-[18px]"></i>
+                </button>
+            </div>
+            <div class="flex flex-col items-start space-y-0.5">
+                <span id="surah-name-amh-display" class="reading-surah-name-amh"><?= htmlspecialchars($surahArabic['nameAmh'] ?? '') ?></span>
+                <?php $readingSurahKey = 'surah' . str_pad($surahArabic['index'] ?? $surahIndex, 3, '0', STR_PAD_LEFT); if (!empty($surahMeanings[$readingSurahKey])): ?>
+                <span class="reading-surah-meaning"><?= htmlspecialchars($surahMeanings[$readingSurahKey]) ?></span>
+                <?php endif; ?>
+            </div>
         </div>
         <div class="flex items-center space-x-2 md:space-x-3 flex-shrink-0">
             <div class="hidden sm:flex items-center space-x-1 border border-slate-200 dark:border-slate-700 bg-gray-50 dark:bg-gray-800 p-1 px-2 rounded-xl text-xs font-semibold shadow-xs">

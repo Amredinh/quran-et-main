@@ -103,6 +103,16 @@ $surahMeta = getSurahMetadata();
 $revelationOrder = getRevelationOrder();
 $surahNamesEn = getSurahNamesEn();
 
+$surahMeaningFile = __DIR__ . '/surah_meaning.json';
+$surahMeanings = [];
+if (file_exists($surahMeaningFile)) {
+    $content = file_get_contents($surahMeaningFile);
+    $parsed = json_decode($content, true);
+    if (is_array($parsed)) {
+        $surahMeanings = $parsed;
+    }
+}
+
 // Render page based on route
 switch ($page) {
     case 'home':

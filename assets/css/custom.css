@@ -115,6 +115,25 @@ input[type="range"]::-webkit-slider-thumb {
   line-height: 1;
 }
 
+/* Reading page: Amharic surah name */
+.reading-surah-name-amh {
+  font-family: 'amha', 'AbyssinicaSIL', 'Noto Sans Ethiopic', 'Ethiopic', serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #6b7280;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Reading page: surah meaning subtitle */
+.reading-surah-meaning {
+  font-family: 'amha', 'AbyssinicaSIL', 'Noto Sans Ethiopic', 'Ethiopic', serif;
+  font-size: 0.75rem;
+  color: #c0c0c0;
+  line-height: 1.2;
+  margin-top: 0.1rem;
+}
+
 /* Reading page: ayah Arabic text */
 .ayah-arabic-text {
   font-family: 'UthmanicHafs', 'Traditional Arabic', serif;
@@ -125,7 +144,6 @@ input[type="range"]::-webkit-slider-thumb {
 .ayah-trans-text {
   font-family: 'amha', 'AbyssinicaSIL', 'Noto Sans Ethiopic', 'Ethiopic', serif;
   font-size: 21px;
-  font-weight: bold;
 }
 
 /* ============= CLASSIC PAPER MODE ============= */

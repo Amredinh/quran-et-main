@@ -1,0 +1,211 @@
+/* Font faces */
+@font-face {
+  font-family: 'UthmanicHafs';
+  src: url('/assets/fonts/UthmanicHafs1Ver09.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'amha';
+  src: url('/assets/fonts/AbyssinicaSIL-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'surah-name-v4';
+  src: url('/assets/fonts/surah-name-v4.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #10B981;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Dark mode select styling */
+.dark select option {
+  background-color: #1f2937 !important;
+  color: white !important;
+}
+
+/* Animation */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  outline: none;
+}
+.dark input[type="range"] {
+  background: #374151;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #10B981;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Arabic font - Uthmanic Hafs for Quran text */
+.font-arabic {
+  font-family: 'UthmanicHafs', 'Traditional Arabic', serif;
+}
+
+/* Amharic font - Abyssinica SIL for translation text */
+.font-amharic {
+  font-family: 'amha', 'AbyssinicaSIL', 'Noto Sans Ethiopic', 'Ethiopic', serif;
+}
+
+/* Default Arabic text styling */
+.arabic {
+  font-family: 'UthmanicHafs', 'Traditional Arabic', serif;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+/* Default Amharic text styling */
+.amharic {
+  font-family: 'amha', 'AbyssinicaSIL', 'Noto Sans Ethiopic', 'Ethiopic', serif;
+  font-size: 1.5rem;
+}
+
+/* Surah grid: Arabic name (right side) */
+.grid-arabic {
+  font-family: 'surah-name-v4', 'UthmanicHafs', 'Traditional Arabic', serif;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* Reading page surah name */
+.reading-surah-name {
+  font-family: 'surah-name-v4', 'UthmanicHafs', 'Traditional Arabic', serif;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+/* Reading page: ayah Arabic text */
+.ayah-arabic-text {
+  font-family: 'UthmanicHafs', 'Traditional Arabic', serif;
+  font-size: 23px;
+}
+
+/* Reading page: ayah translation text */
+.ayah-trans-text {
+  font-family: 'amha', 'AbyssinicaSIL', 'Noto Sans Ethiopic', 'Ethiopic', serif;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+/* ============= CLASSIC PAPER MODE ============= */
+#reading-container.reading-paper-mode {
+  background-color: #f4ecd8 !important;
+  color: #1f2937 !important;
+}
+#reading-container.reading-paper-mode .ayah-arabic-text {
+  color: #1f2937 !important;
+}
+#reading-container.reading-paper-mode .ayah-trans-text {
+  color: #374151 !important;
+}
+#reading-container.reading-paper-mode .border-b,
+#reading-container.reading-paper-mode .border-gray-100,
+#reading-container.reading-paper-mode .border-gray-200 {
+  border-color: #d4c5a0 !important;
+}
+#reading-container.reading-paper-mode .bg-gray-50,
+#reading-container.reading-paper-mode .bg-gray-100 {
+  background-color: #e8dcc4 !important;
+}
+#reading-container.reading-paper-mode .text-gray-400 {
+  color: #8b7d5e !important;
+}
+#reading-container.reading-paper-mode .text-gray-500 {
+  color: #7a6d50 !important;
+}
+#reading-container.reading-paper-mode .text-gray-600 {
+  color: #5c5038 !important;
+}
+#reading-container.reading-paper-mode .text-gray-700 {
+  color: #374151 !important;
+}
+#reading-container.reading-paper-mode .text-slate-400,
+#reading-container.reading-paper-mode .text-slate-500 {
+  color: #7a6d50 !important;
+}
+#reading-container.reading-paper-mode .bg-slate-50 {
+  background-color: #e8dcc4 !important;
+}
+#reading-container.reading-paper-mode .rounded-full {
+  background-color: #e8dcc4 !important;
+  color: #5c5038 !important;
+}
+#reading-container.reading-paper-mode .sticky {
+  background-color: #f4ecd8 !important;
+  border-bottom-color: #d4c5a0 !important;
+}
+
+/* Highlight in paper mode */
+#reading-container.reading-paper-mode .bg-green-50 {
+  background-color: #d4c5a0 !important;
+}
+
+/* ============= RESPONSIVE: MOBILE ============= */
+@media (max-width: 640px) {
+  .ayah-arabic-text {
+    font-size: 20px;
+    line-height: 1.9 !important;
+  }
+  .ayah-trans-text {
+    font-size: 18px;
+  }
+  #reading-container .sticky {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #reading-container .max-w-4xl {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #settings-panel {
+    right: 8px !important;
+    width: calc(100% - 16px) !important;
+    max-width: 320px !important;
+  }
+  .ayah-detail-modal-content {
+    margin: 8px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}

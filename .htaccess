@@ -1,0 +1,38 @@
+RewriteEngine On
+
+# Redirect API requests to api/ directory
+RewriteRule ^api/public/data$ api/public-data.php [L,QSA]
+RewriteRule ^api/public/translation/(.+)$ api/public-translation.php?id=$1 [L,QSA]
+RewriteRule ^api/admin/verify$ api/admin-verify.php [L,QSA]
+RewriteRule ^api/admin/data$ api/admin-data.php [L,QSA]
+RewriteRule ^api/admin/blogs/(\d+)$ api/admin-blogs.php?id=$1 [L,QSA]
+RewriteRule ^api/admin/blogs$ api/admin-blogs.php [L,QSA]
+RewriteRule ^api/admin/reciters$ api/admin-reciters.php [L,QSA]
+RewriteRule ^api/admin/translations/(.+)$ api/admin-translations.php?id=$1 [L,QSA]
+RewriteRule ^api/admin/translations$ api/admin-translations.php [L,QSA]
+RewriteRule ^api/admin/donation$ api/admin-donation.php [L,QSA]
+
+# Admin route
+RewriteRule ^admin$ pages/admin.php [L,QSA]
+
+# Static assets (if file exists, serve directly)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Frontend page routing
+RewriteRule ^audio$ index.php?page=audio [L,QSA]
+RewriteRule ^blog/(\d+)$ index.php?page=blog-post&id=$1 [L,QSA]
+RewriteRule ^blog$ index.php?page=blog [L,QSA]
+RewriteRule ^([a-z]+)/(\d+)$ index.php?page=read&lang=$1&surah=$2 [L,QSA]
+RewriteRule ^$ index.php?page=home [L,QSA]
+
+# Fallback: everything else to home
+RewriteRule ^(.*)$ index.php?page=home [L,QSA]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
